@@ -21,4 +21,6 @@ public:
 protected:
 	virtual void Init() override; // 느낌상 게임 시작시 호출
 	virtual void Shutdown() override; //느낌상 게임 종료시 호출
+
+	
 };
