@@ -26,12 +26,18 @@ public:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 public:
-	UPROPERTY(EditAnywhere, Category = R1)
+	/*UPROPERTY(EditAnywhere, Category = R1)
 	int32 Hp = 100;
 
 	UPROPERTY(EditAnywhere, Category = R1)
 	float Speed = 1.5;
 
 	UPROPERTY(EditAnywhere, Category = R1)
-	FString Name = TEXT("KIM");
+    FString Name = TEXT("KIM");*/
+	
+	UPROPERTY(EditAnywhere)
+	TObjectPtr<class USpringArmComponent> SpringArm; //전방선언 class 표기
+
+	UPROPERTY(EditAnywhere)
+	TObjectPtr<class UCameraComponent> Camera;
 };
