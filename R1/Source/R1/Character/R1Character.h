@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
+#include "InputActionValue.h" // input 을 위한 인클루드
 #include "R1Character.generated.h"
 
 UCLASS()
@@ -25,6 +26,13 @@ public:
 
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+protected:
+	//콜백함수
+	UFUNCTION()
+	void IA_Move(const FInputActionValue& Value);
+	UFUNCTION()
+	void IA_Turn(const FInputActionValue& Value);
+
 public:
 	/*UPROPERTY(EditAnywhere, Category = R1)
 	int32 Hp = 100;
@@ -40,4 +48,14 @@ public:
 
 	UPROPERTY(EditAnywhere)
 	TObjectPtr<class UCameraComponent> Camera;
+private:
+	//IMC 매핑
+	UPROPERTY(EditAnywhere, Category = Input)
+	TObjectPtr<class UInputMappingContext> InputMappingContext;
+	//인풋 액션 매핑
+	UPROPERTY(EditAnywhere, Category = Input)
+	TObjectPtr<class UInputAction> MoveAction;
+
+	UPROPERTY(EditAnywhere, Category = Input)
+	TObjectPtr<class UInputAction> TurnAction;
 };
